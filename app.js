@@ -65,32 +65,26 @@ $(function () {
             }
         }
     });
-    $('#time-tog').change(function () {
-        if ($(this).prop('checked') == true) {
-            mode = 1;
+    $.ajax({
+        type: "GET",
+        url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-sleep_position/view/",
+        dataType: "text",
+        success: function (response) {
+            $('#sleep_position').html(`
+            <label class="fontVal">${response}</label>
+        `)
+        },
+        fail: function (response) {
+            consloe.log(response)
         }
-        else {
-            mode = 0;
-        }
-        $.ajax({
-            type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-time-tog/set/",
-            data: {
-                value: mode
-            },
-            dataType: "text",
-            success: function (response) {
-                console.log(`mode   ${response}`)
-            }
-        });
-    })
+    });
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-top-servo/view/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/view/",
             dataType: "text",
             success: function (response) {
-                $('#top-servo').html(`
+                $('#servo_top').html(`
                 <label class="fontVal">${response}</label>
             `)
                 top = response
@@ -101,10 +95,24 @@ $(function () {
         });
         $.ajax({
             type: "GET",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bottom-servo/view/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/view/",
             dataType: "text",
             success: function (response) {
-                $('#bottom-servo').html(`
+                $('#servo_back').html(`
+                <label class="fontVal">${response}</label>
+            `)
+                top = response
+            },
+            fail: function (response) {
+                consloe.log(response)
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/view/",
+            dataType: "text",
+            success: function (response) {
+                $('#servo_leg').html(`
                 <label class="fontVal">${response}</label>
             `)
                 bottom = response
@@ -114,14 +122,111 @@ $(function () {
             }
         });
         // if (){
-        //      $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
+        //      $('#bed').html(`<img src=" " alt="bed-pic" height="300px">`)
         // }
         // else if(){
-        //      $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
+        //      $('#bed').html(`<img src=" " alt="bed-pic" height="300px">`)
         // }
         // else (){
-        //      $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
-        
+        //      $('#bed').html(`<img src=" " alt="bed-pic" height="300px">`)
+
         // }
     }, 1000)
+    $('#time_tog').change(function () {
+        if ($(this).prop('checked') == true) {
+            mode = 1;
+        }
+        else {
+            mode = 0;
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-time_tog/set/",
+            data: {
+                value: mode
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
+    $('#servo_top_plus').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/set/",
+            data: {
+                value: top+10
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
+    $('#servo_top_minus').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/set/",
+            data: {
+                value: top-10
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
+    $('#servo_back_plus').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/set/",
+            data: {
+                value: back+10
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
+    $('#servo_back_minus').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/set/",
+            data: {
+                value: back-10
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
+    $('#servo_leg_plus').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/set/",
+            data: {
+                value: leg+10
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
+    $('#servo_leg_minus').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/set/",
+            data: {
+                value: leg-10
+            },
+            dataType: "text",
+            success: function (response) {
+                console.log(`mode   ${response}`)
+            }
+        });
+    })
 })
