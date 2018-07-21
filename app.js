@@ -32,10 +32,10 @@ $(function () {
     let sleep = new Chart(ctxx, {
         type: 'line',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["", "", "", "", "", "Orange"],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [2, 5, 13, 6, 9, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -90,18 +90,10 @@ $(function () {
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-top-servo/view/",
             dataType: "text",
             success: function (response) {
-                if (response >0 && response <= 10) {
-                    response = 0
-                }
-                else if (response > 10 && response <= 20) {
-                    $('#bgg').html(`<div style="background: url();"></div>`)
-                }
-                else {
-                    $('#bgg').html(`<div style="background: url();"></div>`)
-                }
                 $('#top-servo').html(`
                 <label class="fontVal">${response}</label>
             `)
+            top = response
             },
             fail: function (response) {
                 consloe.log(response)
@@ -115,10 +107,17 @@ $(function () {
                 $('#bottom-servo').html(`
                 <label class="fontVal">${response}</label>
             `)
+            bottom = response
             },
             fail: function (response) {
                 consloe.log(response)
             }
         });
+        // if (){
+        //     $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
+        // }
+        // else if(){
+
+        // }
     }, 1000)
 })
