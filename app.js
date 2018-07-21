@@ -116,7 +116,7 @@ $(function () {
                 $('#servo_back').html(`
                 <label class="fontVal">${response}</label>
             `)
-                top = response
+                back = response
             },
             fail: function (response) {
                 consloe.log(response)
@@ -130,7 +130,7 @@ $(function () {
                 $('#servo_leg').html(`
                 <label class="fontVal">${response}</label>
             `)
-                bottom = response
+                leg = response
             },
             fail: function (response) {
                 consloe.log(response)
@@ -163,7 +163,9 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                if(mode == 0){
+                    $('#bmode').append(``)
+                }
             }
         });
     })

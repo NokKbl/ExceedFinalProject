@@ -42,19 +42,56 @@
         <div class="row">
             <div class="col-7" style="text-align: center;">
                 <br>
-                <br>
                 <img id="bed" src="https://www.intechnic.com/hubfs/Blog/Featured%20Images/50%20Examples%20of%20Large%20Background%20Video%20Websites.jpg?t=1531847916801"
-                    alt="bed-pic" height="400px">
+                    alt="bed-pic" height="450px">
             </div>
             <div class="col-5" style="text-align: center;">
-                <label class="fontTitle">Sleep Position:</label>
-                <br>
-                <label class="fontTitle">Lie on</label>
-                <div id="sleep_position" class="fontHead">
-                    <label>Left Side</label>
+                <div class="row">
+                    <div class="col">
+                        <label class="fontTitle">Sleep Position:</label>
+                        <br>
+                        <label class="fontTitle">Lie on</label>
+                        <div id="sleep_position" class="fontHead">
+                            <label>Left Side</label>
+                        </div>
+                    </div>
                 </div>
-                <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
-                <input id="bed_mode" type="checkbox" checked data-toggle="toggle" data-on="Auto" data-off="Manual" width="200px">
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+                        <div id="bmode">
+                            <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
+                            <input id="bed_mode" type="checkbox" checked data-toggle="toggle" data-on="Auto" data-off="Manual" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="fontTitle">Head:</label>
+                        <br>
+                        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
+                            <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                            <label class="fontTitle">Back:</label>
+                            <br>
+                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
+                                <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
+                            </div>
+                    </div>
+                    <div class="col-4">
+                            <label class="fontTitle">Leg:</label>
+                            <br>
+                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
+                                <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
+                            </div>
+                    </div>
+
+                </div>
             </div>
         </div>
         <br>
