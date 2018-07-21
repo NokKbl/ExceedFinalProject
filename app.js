@@ -1,4 +1,5 @@
 $(function () {
+    console.log("begin function")
     let top, back, leg;
     let ctx = document.getElementById("wake");
     let date_wake = new Date();
@@ -28,12 +29,13 @@ $(function () {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        max: Math.max(...y_axis_wake) + 2
+                        // max: Math.max(...y_axis_wake) + 2
                     }
                 }]
             }
         }
     });
+    console.log("begin graph wake")
 
     let ctxx = document.getElementById("sleep");
     let date_sl = new Date();
@@ -67,19 +69,25 @@ $(function () {
             }
         }
     });
+    console.log("begin graph sl")
 
     setInterval(function () {
+        console.log("begin function Interval")
         $.ajax({
             type: "GET",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
             dataType: "text",
             success: function (response) {
-                //     if (response==1){
-                //         $('#bed_mode').change(function () {
+                // if (response == 1) {
+                //     $('#bed_mode').change(function () {
                 //         ($(this).prop('checked') == true)
-                //     }
-
-                //     },
+                //     })
+                // }
+                // else {
+                //     $('#bed_mode').change(function () {
+                //         ($(this).prop('unchecked') == true)
+                //     })
+                // }
             },
             fail: function (response) {
                 consloe.log(response)
@@ -151,7 +159,7 @@ $(function () {
         //      $('#bed').html(`<img src=" " alt="bed-pic" height="300px">`)
         // }
     }, 1000)
-
+    console.log("end function Interval")
     $('#bed_mode').change(function () {
         if ($(this).prop('checked') == true) {
             mode = 1;
@@ -167,41 +175,44 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                if (mode == 0) {
-                    $('#bmode').append(`
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fontTitle">Head:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label class="fontTitle">Back:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label class="fontTitle">Leg:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                        </div>
-                    </div>
-                `)
-                } else {
-                    $('#bmode').html(``)
-                }
+                console.log("sfwe")
+                // if (mode == 0) {
+                //     $('#bmode').append(`
+                //     <div class="row">
+                //         <div class="col-4">
+                //             <label class="fontTitle">Head:</label>
+                //             <br>
+                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                //                 <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
+                //                 <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
+                //             </div>
+                //         </div>
+                //         <div class="col-4">
+                //             <label class="fontTitle">Back:</label>
+                //             <br>
+                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                //                 <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
+                //                 <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
+                //             </div>
+                //         </div>
+                //         <div class="col-4">
+                //             <label class="fontTitle">Leg:</label>
+                //             <br>
+                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                //                 <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
+                //                 <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
+                //             </div>
+                //         </div>
+                //     </div>
+                // `)
+                // console.log("add button")
+                // } else {
+                //     $('#bmode').html(``)
+                // }
             }
         });
     })
+    console.log("end bed_mode")
     $('#bedtime').change(function () {
         if ($(this).prop('checked') == true) {
             x_axis_sl.push(day_sl)
@@ -209,6 +220,7 @@ $(function () {
             y_axis_sl.push(time_sl)
             y_axis_sl.shift()
             sleep.update()
+            console.log("add graph sl")
         }
         else {
             x_axis_wake.push(day_wake)
@@ -216,6 +228,7 @@ $(function () {
             y_axis_wake.push(time_wake)
             y_axis_wake.shift()
             wake.update()
+            console.log("add graph wake")
         }
     })
     $('#servo_top_plus').on("click", function () {
@@ -229,6 +242,9 @@ $(function () {
             dataType: "text",
             success: function (response) {
                 console.log(`stp   ${response} ${top}`)
+            },
+            fail: function (response) {
+                console.log("endddddd")
             }
         });
     })
