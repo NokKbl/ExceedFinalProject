@@ -1,5 +1,5 @@
 $(function () {
-    let top,back,leg;
+    let top, back, leg;
     let ctx = document.getElementById("wake");
     let date_wake = new Date();
     let time_wake = date_wake.getHours() + (date_wake.getMinutes() / 60);
@@ -24,10 +24,6 @@ $(function () {
             }]
         },
         options: {
-            title: {
-                display: true,
-                text: 'Waking up average graph per week'
-            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -45,13 +41,6 @@ $(function () {
     let day_sl = date_sl.toDateString();
     let x_axis_sl = ['Sat Jul 14 2018', 'Sun Jul 15 2018', 'Mon Jul 16 2018', 'Tue Jul 17 2018', 'Wed Jul 18 2018', 'Thu Jul 19 2018', 'Fri Jul 20 2018'];
     let y_axis_sl = [20, 22, 23.5, 21.75, 24, 24.5, 1]
-    // if(Math.min(...y_axis_sl) < 10){
-    //     for (i = 0; i < y_axis_sl.length; i++) {
-    //         if(y_axis_sl[i] < 10){
-
-    //         }
-    //     }
-    // }
     let sleep = new Chart(ctxx, {
         type: 'line',
         data: {
@@ -69,10 +58,6 @@ $(function () {
             }]
         },
         options: {
-            title: {
-                display: true,
-                text: 'Sleeping average graph per week'
-            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -183,6 +168,38 @@ $(function () {
             dataType: "text",
             success: function (response) {
                 console.log(`mode   ${response}`)
+                if (mode == 0) {
+                    $('#bmode').append(`
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="fontTitle">Head:</label>
+                            <br>
+                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
+                                <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label class="fontTitle">Back:</label>
+                            <br>
+                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
+                                <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label class="fontTitle">Leg:</label>
+                            <br>
+                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
+                                <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
+                            </div>
+                        </div>
+                    </div>
+                `)
+                } else {
+                    $('#bmode').html(``)
+                }
             }
         });
     })

@@ -17,7 +17,7 @@
 <body>
     <div class="container-fluid">
         <div class="fontHead" style="height: 150px;">
-            Title
+            B E S T &nbsp;&nbsp; B E D
         </div>
         <div class="row">
             <div class="col-4" style="text-align: center;">
@@ -58,49 +58,27 @@
                 </div>
                 <div class="row">
                     <div class="col" style="text-align: center;">
-                        <div id="bmode">
-                            <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
-                            <input id="bed_mode" type="checkbox" checked data-toggle="toggle" data-on="Auto" data-off="Manual" width="200px">
-                        </div>
+                        <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
+                        <input id="bed_mode" type="checkbox" checked data-toggle="toggle" data-on="Auto" data-off="Manual">
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col-4">
-                        <label class="fontTitle">Head:</label>
-                        <br>
-                        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                            <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
-                            <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                            <label class="fontTitle">Back:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                    </div>
-                    <div class="col-4">
-                            <label class="fontTitle">Leg:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                    </div>
-
-                </div>
+                <div id="bmode"></div>
             </div>
         </div>
         <br>
         <br>
+        <div style="text-align: center;">
+            <label style="font-family: 'Comic Sans MS'; font-size: 50px;">Waking up & Sleeping Average Graph per Week</label>
+        </div>
+        <br>
         <div class="row">
-
-
-
-
+            <div class="col" style="text-align: center;">
+                <div>
+                    <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Bedtime: &nbsp;</label>
+                    <input type="checkbox" checked data-toggle="toggle" data-on="Start" data-off="Stop">
+                </div>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -110,8 +88,6 @@
             <div class="col-6">
                 <canvas id="sleep"></canvas>
             </div>
-
-
         </div>
 
 
