@@ -1,4 +1,5 @@
 $(function () {
+    let top,back,leg;
     let ctx = document.getElementById("wake");
     let date_wake = new Date();
     let time_wake = date_wake.getHours() + (date_wake.getMinutes() / 60);
@@ -117,8 +118,11 @@ $(function () {
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/view/",
             dataType: "text",
             success: function (response) {
-                $('#servo_top').html(`<label class="fontVal">${response}</label>`)
+                $('#servo_top').html(`
+                <label class="fontVal">${response}</label>
+            `)
                 top = response
+                console.log(`top   ${top}`)
             },
             fail: function (response) {
                 consloe.log(response)
@@ -160,7 +164,6 @@ $(function () {
         // }
         // else (){
         //      $('#bed').html(`<img src=" " alt="bed-pic" height="300px">`)
-
         // }
     }, 1000)
 
@@ -179,31 +182,31 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                if(mode == 0){
-                    $('#bmode').append(``)
-                }
+                console.log(`mode   ${response}`)
             }
         });
     })
     $('#servo_top_plus').on("click", function () {
+        num = parseInt(top) + 10
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top_cm/set/",
             data: {
-                value: top + 10
+                value: num
             },
             dataType: "text",
             success: function (response) {
-                console.log(`stp   ${response}`)
+                console.log(`stp   ${response} ${top}`)
             }
         });
     })
     $('#servo_top_minus').on("click", function () {
+        num = parseInt(top) - 10
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top_cm/set/",
             data: {
-                value: top - 10
+                value: num
             },
             dataType: "text",
             success: function (response) {
@@ -212,11 +215,12 @@ $(function () {
         });
     })
     $('#servo_back_plus').on("click", function () {
+        num = parseInt(back) + 10
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back_cm/set/",
             data: {
-                value: back + 10
+                value: num
             },
             dataType: "text",
             success: function (response) {
@@ -225,11 +229,12 @@ $(function () {
         });
     })
     $('#servo_back_minus').on("click", function () {
+        num = parseInt(back) - 10
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back_cm/set/",
             data: {
-                value: back - 10
+                value: num
             },
             dataType: "text",
             success: function (response) {
@@ -238,11 +243,12 @@ $(function () {
         });
     })
     $('#servo_leg_plus').on("click", function () {
+        num = parseInt(leg) + 10
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg_cm/set/",
             data: {
-                value: leg + 10
+                value: num
             },
             dataType: "text",
             success: function (response) {
@@ -251,11 +257,12 @@ $(function () {
         });
     })
     $('#servo_leg_minus').on("click", function () {
+        num = parseInt(leg) + 10
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg_cm/set/",
             data: {
-                value: leg - 10
+                value: num
             },
             dataType: "text",
             success: function (response) {
