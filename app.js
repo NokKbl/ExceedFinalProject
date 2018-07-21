@@ -1,7 +1,7 @@
 $(function () {
     let ctx = document.getElementById("wake");
     let date_wake = new Date();
-    let time_wake = date_wake.getHours() + (date_wake.getMinutes()/60);
+    let time_wake = date_wake.getHours() + (date_wake.getMinutes() / 60);
     let day_wake = date_wake.toDateString();
     let x_axis_wake = ['Sat Jul 14 2018', 'Sun Jul 15 2018', 'Mon Jul 16 2018', 'Tue Jul 17 2018', 'Wed Jul 18 2018', 'Thu Jul 19 2018', 'Fri Jul 20 2018'];
     let y_axis_wake = [5.5, 7, 6, 10, 9, 6.5, 8]
@@ -31,7 +31,7 @@ $(function () {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        max: Math.max(...y_axis_wake)+2
+                        max: Math.max(...y_axis_wake) + 2
                     }
                 }]
             }
@@ -40,7 +40,7 @@ $(function () {
 
     let ctxx = document.getElementById("sleep");
     let date_sl = new Date();
-    let time_sl = date_sl.getHours() + (date_sl.getMinutes()/60);
+    let time_sl = date_sl.getHours() + (date_sl.getMinutes() / 60);
     let day_sl = date_sl.toDateString();
     let x_axis_sl = ['Sat Jul 14 2018', 'Sun Jul 15 2018', 'Mon Jul 16 2018', 'Tue Jul 17 2018', 'Wed Jul 18 2018', 'Thu Jul 19 2018', 'Fri Jul 20 2018'];
     let y_axis_sl = [20, 22, 23.5, 21.75, 24, 24.5, 1]
@@ -83,6 +83,22 @@ $(function () {
     });
 
     setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
+            dataType: "text",
+            success: function (response) {
+                //     if (response==1){
+                //         $('#bed_mode').change(function () {
+                //         ($(this).prop('checked') == true)
+                //     }
+
+                //     },
+            },
+            fail: function (response) {
+                consloe.log(response)
+            }
+        });
         $.ajax({
             type: "GET",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-sleep_position/view/",
@@ -174,11 +190,11 @@ $(function () {
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/set/",
             data: {
-                value: top+10
+                value: top + 10
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                console.log(`stp   ${response}`)
             }
         });
     })
@@ -187,11 +203,11 @@ $(function () {
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/set/",
             data: {
-                value: top-10
+                value: top - 10
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                console.log(`stm   ${response}`)
             }
         });
     })
@@ -200,11 +216,11 @@ $(function () {
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/set/",
             data: {
-                value: back+10
+                value: back + 10
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                console.log(`sbp   ${response}`)
             }
         });
     })
@@ -213,11 +229,11 @@ $(function () {
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/set/",
             data: {
-                value: back-10
+                value: back - 10
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                console.log(`sbm   ${response}`)
             }
         });
     })
@@ -226,11 +242,11 @@ $(function () {
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/set/",
             data: {
-                value: leg+10
+                value: leg + 10
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                console.log(`slp   ${response}`)
             }
         });
     })
@@ -239,11 +255,11 @@ $(function () {
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/set/",
             data: {
-                value: leg-10
+                value: leg - 10
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                console.log(`slm   ${response}`)
             }
         });
     })
