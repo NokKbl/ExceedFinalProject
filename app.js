@@ -186,7 +186,7 @@ $(function () {
     $('#servo_top_plus').on("click", function () {
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top_cm/set/",
             data: {
                 value: top + 10
             },
@@ -199,7 +199,7 @@ $(function () {
     $('#servo_top_minus').on("click", function () {
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top_cm/set/",
             data: {
                 value: top - 10
             },
@@ -212,7 +212,7 @@ $(function () {
     $('#servo_back_plus').on("click", function () {
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back_cm/set/",
             data: {
                 value: back + 10
             },
@@ -225,7 +225,7 @@ $(function () {
     $('#servo_back_minus').on("click", function () {
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_back_cm/set/",
             data: {
                 value: back - 10
             },
@@ -238,7 +238,7 @@ $(function () {
     $('#servo_leg_plus').on("click", function () {
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg_cm/set/",
             data: {
                 value: leg + 10
             },
@@ -251,7 +251,7 @@ $(function () {
     $('#servo_leg_minus').on("click", function () {
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_leg_cm/set/",
             data: {
                 value: leg - 10
             },
