@@ -167,7 +167,6 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
                 if (mode == 0) {
                     $('#bmode').append(`
                     <div class="row">
@@ -202,6 +201,22 @@ $(function () {
                 }
             }
         });
+    })
+    $('#bedtime').change(function () {
+        if ($(this).prop('checked') == true) {
+            x_axis_sl.push(day_sl)
+            x_axis_sl.shift()
+            y_axis_sl.push(time_sl)
+            y_axis_sl.shift()
+            sleep.update()
+        }
+        else {
+            x_axis_wake.push(day_wake)
+            x_axis_wake.shift()
+            y_axis_wake.push(time_wake)
+            y_axis_wake.shift()
+            wake.update()
+        }
     })
     $('#servo_top_plus').on("click", function () {
         num = parseInt(top) + 10
