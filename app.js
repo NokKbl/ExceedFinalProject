@@ -148,7 +148,7 @@ $(function () {
         // }
     }, 1000)
 
-    $('#time_tog').change(function () {
+    $('#bed_mode').change(function () {
         if ($(this).prop('checked') == true) {
             mode = 1;
         }
@@ -157,7 +157,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-time_tog/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/set/",
             data: {
                 value: mode
             },
