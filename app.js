@@ -65,20 +65,33 @@ $(function () {
             }
         }
     });
-    $.ajax({
-        type: "GET",
-        url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-sleep_position/view/",
-        dataType: "text",
-        success: function (response) {
-            $('#sleep_position').html(`
-            <label class="fontVal">${response}</label>
-        `)
-        },
-        fail: function (response) {
-            consloe.log(response)
-        }
-    });
     setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
+            dataType: "text",
+            success: function (response) {
+                $('#bed_mode').html(`
+                <label class="fontVal">${response}</label>
+            `)
+            },
+            fail: function (response) {
+                consloe.log(response)
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-sleep_position/view/",
+            dataType: "text",
+            success: function (response) {
+                $('#sleep_position').html(`
+                <label class="fontVal">${response}</label>
+            `)
+            },
+            fail: function (response) {
+                consloe.log(response)
+            }
+        });
         $.ajax({
             type: "GET",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-servo_top/view/",
@@ -132,7 +145,7 @@ $(function () {
 
         // }
     }, 1000)
-    $('#time_tog').change(function () {
+    $('#bed_mode').change(function () {
         if ($(this).prop('checked') == true) {
             mode = 1;
         }
@@ -141,7 +154,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-time_tog/set/",
+            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/set/",
             data: {
                 value: mode
             },
