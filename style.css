@@ -1,25 +1,41 @@
-body{
+* {
+    font-family: 'Comic Sans MS';
+}
+
+body {
     padding: 30px;
 }
 
-.fontHead{
-    font-family: 'Comic Sans MS';
-    font-size: 100px;
+.webpage {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.fontHead {
     text-align: center;
+    font-size: 95px;
+}
+
+@media only screen and (max-width: 375px) {
+    .fontHead{
+        text-align: center;
+        font-size: 60px;
+    }
 }
 
 .fontTitle{
-    font-family: 'Comic Sans MS';
     font-size: 25px;
 }
 
 .fontVal{
-    font-family: 'Comic Sans MS';
     font-size: 100px;
 }
 
+.fontPos{
+    font-size: 70px;
+}
+
 .fontDegree{
-    font-family: 'Comic Sans MS';
     font-size: 30px;
     position: absolute;
     top: 60px;
@@ -37,4 +53,9 @@ body{
     background-color: white;
     border: thin rgba(0, 0, 0, .25) solid;
     width: 70px;
+}
+
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url(./font/Comic\ Sans\ MS.ttf);
 }

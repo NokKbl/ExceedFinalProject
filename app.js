@@ -74,15 +74,16 @@ $(function () {
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
             dataType: "text",
             success: function (response) {
-                //     if (response==1){
-                //         $('#bed_mode').change(function () {
-                //         ($(this).prop('checked') == true)
-                //     }
-
-                //     },
+                if (response == 1) {
+                    $('#bed_mode').bootstrapToggle('on')
+                }
+                else {
+                    $('#bed_mode').bootstrapToggle('off')
+                }
+                console.log(`mode   ${response}`)
             },
             fail: function (response) {
-                consloe.log(response)
+                console.log(response)
             }
         });
         $.ajax({
@@ -90,12 +91,30 @@ $(function () {
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-sleep_position/view/",
             dataType: "text",
             success: function (response) {
-                $('#sleep_position').html(`
-                <label class="fontVal">${response}</label>
+                if (response == 0) {
+                    $('#sleep_position').html(`
+                <label class="fontPos">Back</label>            
             `)
+                }
+                else if (response == 1) {
+                    $('#sleep_position').html(`
+                <label class="fontPos">Left Side</label>            
+            `)
+                }
+                else if (response == 2) {
+                    $('#sleep_position').html(`
+                <label class="fontPos">Right Side</label>            
+            `)
+                }
+                else {
+                    $('#sleep_position').html(`
+                <label class="fontPos">Prone</label>            
+            `)
+                }
+                console.log(`sleep_position   ${response}`)
             },
             fail: function (response) {
-                consloe.log(response)
+                console.log(response)
             }
         });
         $.ajax({
@@ -110,7 +129,7 @@ $(function () {
                 console.log(`top   ${top}`)
             },
             fail: function (response) {
-                consloe.log(response)
+                console.log(response)
             }
         });
         $.ajax({
@@ -122,9 +141,10 @@ $(function () {
                 <label class="fontVal">${response}</label>
             `)
                 back = response
+                console.log(`back   ${back}`)
             },
             fail: function (response) {
-                consloe.log(response)
+                console.log(response)
             }
         });
         $.ajax({
@@ -136,9 +156,10 @@ $(function () {
                 <label class="fontVal">${response}</label>
             `)
                 leg = response
+                console.log(`leg   ${leg}`)
             },
             fail: function (response) {
-                consloe.log(response)
+                console.log(response)
             }
         });
         // if (){
@@ -153,12 +174,16 @@ $(function () {
     }, 1000)
 
     $('#bed_mode').change(function () {
+        console.log($(this).prop('checked'));
+
         if ($(this).prop('checked') == true) {
             mode = 1;
         }
         else {
             mode = 0;
         }
+        console.log('BEDMODE CHANGE ', mode);
+
         $.ajax({
             type: "POST",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/set/",
@@ -167,46 +192,17 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                if(mode == 1){
+                console.log("SENDING ", mode);
+
+                if (mode == 1) {
                     $('#bmode').hide()
-                }else{
+                } else {
                     $('#bmode').show()
                 }
-                // if (mode == 0) {
-                //     $('#bmode').append(`
-                //     <div class="row">
-                //         <div class="col-4">
-                //             <label class="fontTitle">Head:</label>
-                //             <br>
-                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                //                 <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
-                //                 <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
-                //             </div>
-                //         </div>
-                //         <div class="col-4">
-                //             <label class="fontTitle">Back:</label>
-                //             <br>
-                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                //                 <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
-                //                 <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
-                //             </div>
-                //         </div>
-                //         <div class="col-4">
-                //             <label class="fontTitle">Leg:</label>
-                //             <br>
-                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                //                 <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
-                //                 <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
-                //             </div>
-                //         </div>
-                //     </div>
-                // `)
-                // } else {
-                //     $('#bmode').html(``)
-                // }
             }
         });
     })
+
     $('#bedtime').change(function () {
         if ($(this).prop('checked') == true) {
             x_axis_sl.push(day_sl)
