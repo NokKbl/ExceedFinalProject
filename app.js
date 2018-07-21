@@ -167,38 +167,43 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                if (mode == 0) {
-                    $('#bmode').append(`
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fontTitle">Head:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label class="fontTitle">Back:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label class="fontTitle">Leg:</label>
-                            <br>
-                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
-                                <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
-                            </div>
-                        </div>
-                    </div>
-                `)
-                } else {
-                    $('#bmode').html(``)
+                if(mode == 1){
+                    $('#bmode').hide()
+                }else{
+                    $('#bmode').show()
                 }
+                // if (mode == 0) {
+                //     $('#bmode').append(`
+                //     <div class="row">
+                //         <div class="col-4">
+                //             <label class="fontTitle">Head:</label>
+                //             <br>
+                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                //                 <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
+                //                 <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
+                //             </div>
+                //         </div>
+                //         <div class="col-4">
+                //             <label class="fontTitle">Back:</label>
+                //             <br>
+                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                //                 <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
+                //                 <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
+                //             </div>
+                //         </div>
+                //         <div class="col-4">
+                //             <label class="fontTitle">Leg:</label>
+                //             <br>
+                //             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                //                 <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
+                //                 <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
+                //             </div>
+                //         </div>
+                //     </div>
+                // `)
+                // } else {
+                //     $('#bmode').html(``)
+                // }
             }
         });
     })
