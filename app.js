@@ -179,7 +179,9 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                if(mode == 0){
+                    $('#bmode').append(``)
+                }
             }
         });
     })
