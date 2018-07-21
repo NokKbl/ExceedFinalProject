@@ -20,51 +20,62 @@
             Title
         </div>
         <div class="row">
-
-                    <div class="col-4" style="text-align: center;">
-                        <label class="fontTitle">Bed's degree (Top):</label>
-                        <br>
-                        <label id="servo_top" class="fontHead">00</label>
-                        <label class="fontDegree"> °</label>
-                    </div>
-                    <div class="col-4" style="text-align: center;">
-                            <label class="fontTitle">Bed's degree (Back):</label>
-                            <br>
-                            <label id="servo_back" class="fontHead">00</label>
-                            <label class="fontDegree"> °</label>
-                    </div>
-                    <div class="col-4" style="text-align: center;">
-                        <label class="fontTitle">Bed's degree (Leg):</label>
-                        <br>
-                        <label id="servo_leg" class="fontHead">00</label>
-                        <label class="fontDegree"> °</label>
-                    </div>
+            <div class="col-4" style="text-align: center;">
+                <label class="fontTitle">Bed's degree (Top):</label>
+                <br>
+                <label id="servo_top" class="fontHead">00</label>
+                <label class="fontDegree"> °</label>
+            </div>
+            <div class="col-4" style="text-align: center;">
+                <label class="fontTitle">Bed's degree (Back):</label>
+                <br>
+                <label id="servo_back" class="fontHead">00</label>
+                <label class="fontDegree"> °</label>
+            </div>
+            <div class="col-4" style="text-align: center;">
+                <label class="fontTitle">Bed's degree (Leg):</label>
+                <br>
+                <label id="servo_leg" class="fontHead">00</label>
+                <label class="fontDegree"> °</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7" style="text-align: center;">
+                <br>
+                <br>
+                <img id="bed" src="https://www.intechnic.com/hubfs/Blog/Featured%20Images/50%20Examples%20of%20Large%20Background%20Video%20Websites.jpg?t=1531847916801"
+                    alt="bed-pic" height="400px">
+            </div>
+            <div class="col-5" style="text-align: center;">
+                <label class="fontTitle">Sleep Position:</label>
+                <br>
+                <label class="fontTitle">Lie on</label>
+                <div id="bed_position" class="fontHead">
+                    <label>Left Side</label>
                 </div>
-                <div class="row">
-                    <div class="col" style="text-align: center;">
-                        <br>
-                        <img id="bed" src="https://www.intechnic.com/hubfs/Blog/Featured%20Images/50%20Examples%20of%20Large%20Background%20Video%20Websites.jpg?t=1531847916801" alt="bed-pic" height="400px">
-                    </div>
+                <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
+                <input id="bed_mode" type="checkbox" checked data-toggle="toggle" data-on="Auto" data-off="Manual" width="200px">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+
+
+
 
         </div>
-        <br><br>
-                    <div class="row">
-                        <div class="col-12" style="text-align: center;">
-                            <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
-                            <input id="time-tog" type="checkbox" checked data-toggle="toggle" data-on="Auto" data-off="Manual" width="200px">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-6">
-                                <canvas id="wake"></canvas>
-                        </div>
-                        <div class="col-6">
-                                <canvas id="sleep"></canvas>
-                        </div>
-                        
-                        
-                    </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <canvas id="wake"></canvas>
+            </div>
+            <div class="col-6">
+                <canvas id="sleep"></canvas>
+            </div>
+
+
+        </div>
 
 
     </div>
