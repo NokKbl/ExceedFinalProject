@@ -93,7 +93,7 @@ $(function () {
                 $('#top-servo').html(`
                 <label class="fontVal">${response}</label>
             `)
-            top = response
+                top = response
             },
             fail: function (response) {
                 consloe.log(response)
@@ -107,17 +107,21 @@ $(function () {
                 $('#bottom-servo').html(`
                 <label class="fontVal">${response}</label>
             `)
-            bottom = response
+                bottom = response
             },
             fail: function (response) {
                 consloe.log(response)
             }
         });
         // if (){
-        //     $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
+        //      $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
         // }
         // else if(){
-
+        //      $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
+        // }
+        // else (){
+        //      $('#bed-img').html(`<img src=" " alt="bed" height="300px">`)
+        
         // }
     }, 1000)
 })
