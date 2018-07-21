@@ -15,27 +15,40 @@
 </head>
 
 <body>
-
     <div class="container-fluid">
-        <div class="row" style="height: 100px;">
-            <h1>Title</h1>
+        <div class="fontHead" style="height: 150px;">
+            Title
         </div>
         <div class="row">
             <div class="col-6">
                 <div class="row">
-                    <div class="col-6">degree</div>
-                    <div class="col-6">degree</div>
+                    <div class="col-6" style="text-align: center;">
+                        <label class="fontTitle">Bed's degree (top):</label>
+                        <br>
+                        <label id="top-servo" class="fontHead">00</label>
+                        <label class="fontDegree"> °</label>
+                    </div>
+                    <div class="col-6" style="text-align: center;">
+                        <label class="fontTitle">Bed's degree (bottom):</label>
+                        <br>
+                        <label id="bottom-servo" class="fontHead">00</label>
+                        <label class="fontDegree"> °</label>
+                    </div>
                 </div>
-                <div class="row">picture</div>
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+                        <br>
+                        <img src="https://www.intechnic.com/hubfs/Blog/Featured%20Images/50%20Examples%20of%20Large%20Background%20Video%20Websites.jpg?t=1531847916801" alt="bed-pic" height="400px">
+                    </div>
+                </div>
             </div>
             <div class="col-6">
                 <div class="row">
-                    <div class="col-12">
-                        <label class="fontTitle">Timer: </label>
-                        <br>
-                        <label>Stop </label>
+                    <div class="col-12" style="text-align: center;">
+                        <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Timer: &nbsp;</label>
+                        <label class="fontTitle">Stop </label>
                         <input id="time-tog" type="checkbox" checked data-toggle="toggle">
-                        <label>Start</label>
+                        <label class="fontTitle">Start</label>
                     </div>
                 </div>
                 <div class="row">

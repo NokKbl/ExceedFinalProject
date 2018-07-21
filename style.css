@@ -1,14 +1,29 @@
+body{
+    padding: 30px;
+}
+
+.fontHead{
+    font-family: 'Comic Sans MS';
+    font-size: 100px;
+    text-align: center;
+}
+
 .fontTitle{
     font-family: 'Comic Sans MS';
+    font-size: 25px;
+}
+
+.fontVal{
+    font-family: 'Comic Sans MS';
+    font-size: 100px;
+}
+
+.fontDegree{
+    font-family: 'Comic Sans MS';
     font-size: 30px;
-}
-
-.modeHeight{
-    height: 200px;
-}
-
-.valHeight{
-    height: 200px;
+    position: absolute;
+    top: 60px;
+    right: 65px;
 }
 
 .toggle-off {
