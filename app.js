@@ -1,58 +1,62 @@
 $(function () {
     let ctx = document.getElementById("wake");
+    let date_wake = new Date();
+    let time_wake = date_wake.getHours() + (date_wake.getMinutes()/60);
+    let day_wake = date_wake.toDateString();
+    let x_axis_wake = ['Sat Jul 14 2018', 'Sun Jul 15 2018', 'Mon Jul 16 2018', 'Tue Jul 17 2018', 'Wed Jul 18 2018', 'Thu Jul 19 2018', 'Fri Jul 20 2018'];
+    let y_axis_wake = [5.5, 7, 6, 10, 9, 6.5, 8]
+
     let wake = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: x_axis_wake,
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Waking up Time',
+                data: y_axis_wake,
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)'
+                ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 4
             }]
         },
         options: {
+            title: {
+                text: 'Waking up average graph per week'
+            },
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        max: Math.max(...y_axis_wake)+2
                     }
                 }]
             }
         }
     });
+
     let ctxx = document.getElementById("sleep");
+    let date_sl = new Date();
+    let time_sl = date_sl.getHours() + (date_sl.getMinutes()/60);
+    let day_sl = date_sl.toDateString();
+    let x_axis_sl = ['Sat Jul 14 2018', 'Sun Jul 15 2018', 'Mon Jul 16 2018', 'Tue Jul 17 2018', 'Wed Jul 18 2018', 'Thu Jul 19 2018', 'Fri Jul 20 2018'];
+    let y_axis_sl = [5.5, 7, 6, 10, 9, 6.5, 8]
     let sleep = new Chart(ctxx, {
         type: 'line',
         data: {
             labels: ["", "", "", "", "", "Orange"],
             datasets: [{
-                label: '# of Votes',
+                label: 'Sleeping Time',
                 data: [2, 5, 13, 6, 9, 3],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(153, 102, 255, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(153, 102, 255, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 4
             }]
         },
         options: {
@@ -65,6 +69,7 @@ $(function () {
             }
         }
     });
+
     $('#time-tog').change(function () {
         if ($(this).prop('checked') == true) {
             mode = 1;
@@ -80,7 +85,13 @@ $(function () {
             },
             dataType: "text",
             success: function (response) {
-                console.log(`mode   ${response}`)
+                if(mode == 1){
+                    
+                }else{
+                    x_axis_wake.push(day_wake)
+                    x_axis_wake.shift()
+                    wake.update()
+                }
             }
         });
     })
