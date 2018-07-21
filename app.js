@@ -3,7 +3,7 @@ $(function(){
     let wake = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: [],
         datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
