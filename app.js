@@ -124,6 +124,14 @@ $(function () {
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-controller_select/view/",
             dataType: "text",
             success: function (response) {
+                if (response == 1) {
+                    $('#man_mode').bootstrapToggle('on')
+                    $('#bmode').hide()
+                }
+                else {
+                    $('#man_mode').bootstrapToggle('off')
+                    $('#bmode').show()
+                }
                 console.log(`select   ${response}`)
             },
             fail: function (response) {
