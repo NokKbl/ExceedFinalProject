@@ -125,12 +125,14 @@ $(function () {
             dataType: "text",
             success: function (response) {
                 if (response == 1) {
-                    $('#man_mode').bootstrapToggle('on')
-                    $('#bmode').hide()
+                    $('#man_m').html(`
+                    <label style="font-size:40px;">Joystick</label>
+                    `)
                 }
                 else {
-                    $('#man_mode').bootstrapToggle('off')
-                    $('#bmode').show()
+                    $('#man_m').html(`
+                    <label style="font-size:40px;">WebPage</label>
+                    `)
                 }
                 console.log(`select   ${response}`)
             },
