@@ -1,6 +1,6 @@
 $(function () {
     let top, back, leg;
-    let topp, backk, legg;
+    let topp, backk, legg, mode, bedmode;
     let ctx = document.getElementById("wake");
     let date_wake = new Date();
     let time_wake = date_wake.getHours() + (date_wake.getMinutes() / 60);
@@ -70,24 +70,48 @@ $(function () {
     });
 
     setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
-            dataType: "text",
-            success: function (response) {
-                if (response == 1) {
-                    $('#bed_mode').bootstrapToggle('on')
+            $.ajax({
+                type: "GET",
+                url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
+                dataType: "text",
+                success: function (response) {
+                    if (response == 1) {
+                        $('#bed_mode').bootstrapToggle('on')
+                        $('#man_m').hide()
+                        $('#man_mode').hide()
+                        bedmode=1
+                    }
+                    else {
+                        $('#bed_mode').bootstrapToggle('off')
+                        $('#man_m').show()
+                        $('#man_mode').show()
+                        bedmode=0
+                    }
+                    topp, backk, legg = 10;
+                    console.log(`mode   ${response}`)
+                },
+                fail: function (response) {
+                    console.log(response)
                 }
-                else {
-                    $('#bed_mode').bootstrapToggle('off')
-                }
-                topp, backk, legg = 10;
-                console.log(`mode   ${response}`)
-            },
-            fail: function (response) {
-                console.log(response)
-            }
-        });
+            });
+        // else{
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-bed_mode/view/",
+        //         dataType: "text",
+        //         success: function (response) {
+        //             if (response == 1) {
+        //                 $('#bed_mode').bootstrapToggle('on')
+        //                 mode = 1;
+        //             }
+        //             topp, backk, legg = 10;
+        //             console.log(`mode   ${response}`)
+        //         },
+        //         fail: function (response) {
+        //             console.log(response)
+        //         }
+        //     });
+        // }
         $.ajax({
             type: "GET",
             url: "http://ecourse.cpe.ku.ac.th/exceed/api/tonpalm-sleep_position/view/",
@@ -477,6 +501,30 @@ $(function () {
         else if (top == 0 && back > 30 && back <= 40 && leg > 30 && leg <= 40) {
             $('#bed').html(`<img src="https://image.ibb.co/mmfpyd/W40_NSTRleg40.png" alt="bed-pic" width="100%" height="auto">`)
         }
+        else if (top <= 10 && top > 0 && back > 0 && back <= 10 && leg == 0) {
+            $('#bed').html(`<img src="https://image.ibb.co/ckh2Jd/10.png" alt="bed-pic" width="100%" height="auto">`)     //
+        }
+        else if (top <= 20 && top > 10 && back > 10 && back <= 20 && leg == 0) {
+            $('#bed').html(`<img src="https://image.ibb.co/kDBJry/20.png" alt="bed-pic" width="100%" height="auto">`)
+        }
+        else if (top <= 30 && top > 20 && back > 20 && back <= 30 && leg == 0) {
+            $('#bed').html(`<img src="https://image.ibb.co/kNSrBy/30.png" alt="bed-pic" width="100%" height="auto">`)
+        }
+        else if (top <= 40 && top > 30 && back > 30 && back <= 40 && leg == 0) {
+            $('#bed').html(`<img src="https://image.ibb.co/nC5YPJ/40.png" alt="bed-pic" width="100%" height="auto">`)
+        }
+        else if (top == 0 && back == 0 && leg > 0 && leg <= 10) {
+            $('#bed').html(`<img src="https://image.ibb.co/e8pFod/10.png" alt="bed-pic" width="100%" height="auto">`)     //
+        }
+        else if (top == 0 && back == 0 && leg > 10 && leg <= 20) {
+            $('#bed').html(`<img src="https://image.ibb.co/j8yVMy/20.png" alt="bed-pic" width="100%" height="auto">`)
+        }
+        else if (top == 0 && back == 0 && leg > 20 && leg <= 30) {
+            $('#bed').html(`<img src="https://image.ibb.co/j9W6uJ/30.png" alt="bed-pic" width="100%" height="auto">`)
+        }
+        else if (top == 0 && back == 0 && leg > 30 && leg <= 40) {
+            $('#bed').html(`<img src="https://image.ibb.co/cU3KEJ/40.png" alt="bed-pic" width="100%" height="auto">`)
+        }
         else {
             $('#bed').html(`<img src="https://image.ibb.co/hyjN1y/lieonback.png" alt="bed-pic" width="100%" height="auto">`)    //ตัวตรง
         }
@@ -508,7 +556,7 @@ $(function () {
                 if (mode == 1) {
                     $('#bmode').hide()
                 } else {
-                    $('#bmode').show()
+                    $('#bmode').hide()
                 }
             }
         });
