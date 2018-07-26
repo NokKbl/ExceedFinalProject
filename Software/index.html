@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Ton Palm Project</title>
+</head>
+
+<body style="background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);">
+    <div class="webpage" style="margin-top: 50px">
+        <div class="container-fluid">
+            <div class="fontHead" style="height: 150px;">
+                ~ Best Bed ~
+                <hr>
+            </div>
+            <br>
+            <div class="row" style="height: 40px;"></div>
+            <div class="row">
+                <div class="col-12 col-md-4" style="text-align: center;">
+                    <label class="fontTitle">Bed's degree (Top):</label>
+                    <br>
+                    <label id="servo_top" class="fontHead">00</label>
+                    <label class="fontDegree"> °</label>
+                </div>
+                <div class="col-12 col-md-4" style="text-align: center;">
+                    <label class="fontTitle">Bed's degree (Back):</label>
+                    <br>
+                    <label id="servo_back" class="fontHead">00</label>
+                    <label class="fontDegree"> °</label>
+                </div>
+                <div class="col-12 col-md-4" style="text-align: center;">
+                    <label class="fontTitle">Bed's degree (Leg):</label>
+                    <br>
+                    <label id="servo_leg" class="fontHead">00</label>
+                    <label class="fontDegree"> °</label>
+                </div>
+            </div>
+            <div class="row" style="height: 450px;">
+                <div class="col-12 col-lg-7" style="text-align: center;">
+                    <br>
+                    <div id="bed">
+                        <img src="https://www.intechnic.com/hubfs/Blog/Featured%20Images/50%20Examples%20of%20Large%20Background%20Video%20Websites.jpg?t=1531847916801"
+                        alt="bed-pic" width="100%" height="auto">
+                    </div>
+                    
+                </div>
+                <div class="col-12 col-lg-5" style="text-align: center;">
+                    <div class="row">
+                        <div class="col">
+                            <br>
+                            <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Sleep Position: </label>
+                            <label class="fontTitle">Sleep on...</label>
+                            <div id="sleep_position" class="fontPos">
+                                <label>Xxxxx Side</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                            <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Mode: &nbsp;</label>
+                            <input id="bed_mode" type="checkbox" data-toggle="toggle" data-on="Auto" data-off="Manual" data-width="200">
+                        </div>
+                    </div>
+                    <br>
+                    <div id="man_mode">
+                        <div class="row">
+                            <div class="col">
+                                <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Manual Mode: &nbsp;</label>
+                                <!-- <input type="checkbox" data-toggle="toggle" data-on="Joystick" data-off="Webpage" data-width="150"> -->
+                                <label id="man_m">XXXXXXX</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="bmode">
+                        <div class="row">
+                            <div class="col-3">
+                                <label class="fontTitle">Head:</label>
+                                <br>
+                                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                    <button id="servo_top_plus" type="button" class="btn btn-secondary">+</button>
+                                    <button id="servo_top_minus" type="button" class="btn btn-secondary">-</button>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <label class="fontTitle">Back:</label>
+                                <br>
+                                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                    <button id="servo_back_plus" type="button" class="btn btn-secondary">+</button>
+                                    <button id="servo_back_minus" type="button" class="btn btn-secondary">-</button>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <label class="fontTitle">Leg:</label>
+                                <br>
+                                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                    <button id="servo_leg_plus" type="button" class="btn btn-secondary">+</button>
+                                    <button id="servo_leg_minus" type="button" class="btn btn-secondary">-</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center;">
+                <label style="font-family: 'Comic Sans MS'; font-size: 40px;">Waking up & Sleeping Average Graph per Week</label>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <div>
+                        <label style="font-family: 'Comic Sans MS'; font-size: 30px;">Bedtime: &nbsp;</label>
+                        <input id="bedtime" type="checkbox" unchecked data-toggle="toggle" data-on="Start" data-off="Stop" data-width="150">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <canvas id="wake"></canvas>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <canvas id="sleep"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

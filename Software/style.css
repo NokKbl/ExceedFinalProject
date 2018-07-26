@@ -1,0 +1,61 @@
+* {
+    font-family: 'Comic Sans MS';
+}
+
+body {
+    padding: 30px;
+}
+
+.webpage {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.fontHead {
+    text-align: center;
+    font-size: 95px;
+}
+
+@media only screen and (max-width: 375px) {
+    .fontHead{
+        text-align: center;
+        font-size: 60px;
+    }
+}
+
+.fontTitle{
+    font-size: 25px;
+}
+
+.fontVal{
+    font-size: 100px;
+}
+
+.fontPos{
+    font-size: 70px;
+}
+
+.fontDegree{
+    font-size: 30px;
+    position: absolute;
+    top: 60px;
+    right: 100px;
+}
+
+.toggle-off {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.toggle.off {
+    border-color: rgba(0, 0, 0, .25);
+}
+
+.toggle-handle {
+    background-color: white;
+    border: thin rgba(0, 0, 0, .25) solid;
+    width: 70px;
+}
+
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url(./font/Comic\ Sans\ MS.ttf);
+}
